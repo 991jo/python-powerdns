@@ -485,6 +485,12 @@ class RRSet(dict):
         self['records'] = []
         for record in records:
             disabled = False
+            if isinstance(record, dict):
+                if set(record.keys()) != {"content", "disabled"}:
+                    raise ValueError(f"Dictionary { records } does not have exactly the 'content' and 'disabled' keys")
+                self['records'].append(record)
+                continue
+
             if isinstance(record, tuple) or isinstance(record, list):
                 disabled = record[1]
                 record = record[0]
