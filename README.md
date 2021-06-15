@@ -109,7 +109,7 @@ zone.create_records([
     powerdns.RRSet('b', 'A', ['1.1.1.2', '1.1.1.3']),
     powerdns.RRSet('c', 'A', [('1.1.1.4', False)]),
     powerdns.RRSet('d', 'CNAME', ['a'])
-    powerdns.RRSet('e', 'CNAME', [{"content": "a", disabled=False}])
+    powerdns.RRSet('e', 'CNAME', [{"content": "a", "disabled": False}])
 ])
 
 zone.delete_records([
