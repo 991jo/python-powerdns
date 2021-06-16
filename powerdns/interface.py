@@ -492,6 +492,8 @@ class RRSet(dict):
                     raise ValueError(f"Dictionary { records } has more keys than 'content' and 'disabled'")
                 if "content" not in record.keys():
                     raise ValueError(f"Dictionary { records } does not have the 'content' key.")
+                if "disabled" not in record.keys():
+                    record["disabled"] = False
 
                 self['records'].append(record)
                 continue
